@@ -38,19 +38,6 @@
         });
     }
 
-    /* 1b. Hero Video Detection
-       -------------------------------------------------------- */
-    var heroVideo = document.querySelector('.hero-video');
-    if (heroVideo) {
-        heroVideo.addEventListener('playing', function() {
-            heroVideo.classList.add('is-playing');
-        });
-        // If video fails to load, fallback image stays visible
-        heroVideo.addEventListener('error', function() {
-            heroVideo.style.display = 'none';
-        });
-    }
-
     /* 2. Sticky Header (shadow + background on scroll)
        -------------------------------------------------------- */
     const header = document.getElementById('header');

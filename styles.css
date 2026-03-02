@@ -1374,31 +1374,14 @@ section {
     z-index: 0;
 }
 
-.hero-bg img,
 .hero-bg video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
     animation: heroBgReveal 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* When video loads, hide the fallback image */
-.hero-bg .hero-video.is-playing ~ .hero-fallback {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Fallback image sits behind the video */
-.hero-bg .hero-fallback {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.hero-bg .hero-video {
-    position: relative;
-    z-index: 1;
 }
 
 .hero-bg::after {
