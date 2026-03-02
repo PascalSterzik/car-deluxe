@@ -181,6 +181,7 @@
     function closeLightbox() {
         if (!lightbox) return;
         lightbox.classList.remove('active');
+        if (lightboxImg) lightboxImg.classList.remove('zoomed');
         document.body.style.overflow = '';
         lightboxImg.src = '';
     }
@@ -191,6 +192,7 @@
         if (newIndex >= visibleGalleryImages.length) newIndex = 0;
 
         currentLightboxIndex = newIndex;
+        if (lightboxImg) lightboxImg.classList.remove('zoomed');
         lightboxImg.style.opacity = '0';
         setTimeout(function() {
             lightboxImg.src = visibleGalleryImages[newIndex].src;
@@ -224,7 +226,15 @@
         if (lightboxPrev) lightboxPrev.addEventListener('click', function() { navigateLightbox(-1); });
         if (lightboxNext) lightboxNext.addEventListener('click', function() { navigateLightbox(1); });
 
-        // Close on background click
+        // Zoom toggle on image click
+        if (lightboxImg) {
+            lightboxImg.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightboxImg.classList.toggle('zoomed');
+            });
+        }
+
+        // Close on background click (not on image)
         lightbox.addEventListener('click', function(e) {
             if (e.target === lightbox) closeLightbox();
         });

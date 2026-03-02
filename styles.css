@@ -903,9 +903,8 @@ section {
 .ba-item {
     position: relative;
     border-radius: var(--radius-md);
-    cursor: zoom-in;
     overflow: hidden;
-    cursor: pointer;
+    cursor: zoom-in;
 }
 
 .ba-item img {
@@ -1099,6 +1098,15 @@ section {
     max-height: 85vh;
     object-fit: contain;
     border-radius: var(--radius-sm);
+    cursor: zoom-in;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-img.zoomed {
+    cursor: zoom-out;
+    transform: scale(1.8);
+    max-width: none;
+    max-height: none;
 }
 
 .lightbox-close {
@@ -1392,11 +1400,9 @@ section {
 @keyframes heroBgReveal {
     from {
         opacity: 0;
-        transform: scale(1.15);
     }
     to {
         opacity: 0.35;
-        transform: scale(1.1);
     }
 }
 
@@ -2076,67 +2082,32 @@ section {
     color: var(--text-muted);
 }
 
-/* Brand Showcase (above footer) */
+/* Brand Showcase (image only, no overlay) */
 .brand-showcase {
-    position: relative;
-    height: 400px;
-    display: flex;
+    width: 100%;
+    background: var(--bg);
+    line-height: 0;
+}
+
+.brand-showcase-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Footer social — ensure icon is visible and clickable */
+.footer-social a {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-}
-
-.brand-showcase-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15;
-    filter: grayscale(0.5);
-}
-
-.brand-showcase-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-
-.brand-showcase-logo {
-    width: 100px;
-    height: auto;
-    opacity: 0.8;
-}
-
-.brand-showcase-name {
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 400;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    line-height: 1;
-    opacity: 0.7;
-}
-
-.brand-showcase-tagline {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
-}
-
-/* Footer social icon alignment */
-.footer-social {
-    justify-content: flex-start;
 }
 
 .footer-social a svg {
     display: block;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
+    fill: currentColor;
 }
 
 /* 10. Responsive
