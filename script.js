@@ -238,8 +238,33 @@
         });
     }
 
-    /* 7. Smooth Scroll for Anchor Links
+    /* 7. Smooth Scroll for Anchor Links (custom eased, luxury feel)
        -------------------------------------------------------- */
+    function smoothScrollTo(targetY, duration) {
+        var startY = window.pageYOffset;
+        var diff = targetY - startY;
+        var startTime = null;
+
+        function easeInOutCubic(t) {
+            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var elapsed = timestamp - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var easedProgress = easeInOutCubic(progress);
+
+            window.scrollTo(0, startY + diff * easedProgress);
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             var targetId = this.getAttribute('href');
@@ -250,10 +275,7 @@
                 e.preventDefault();
                 var headerHeight = header ? header.offsetHeight : 0;
                 var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                window.scrollTo({
-                    top: top,
-                    behavior: 'smooth'
-                });
+                smoothScrollTo(top, 1200);
             }
         });
     });
@@ -339,6 +361,10 @@
     var heroBg = document.querySelector('.hero-bg');
 
     if (heroBg) {
+        /* Set initial scale so there's no jump on first scroll */
+        heroBg.style.transform = 'translateY(0px) scale(1.1)';
+        heroBg.style.willChange = 'transform';
+
         window.addEventListener('scroll', function() {
             var scrolled = window.pageYOffset;
             if (scrolled < window.innerHeight) {
@@ -375,7 +401,45 @@
         });
     }
 
-    /* 12. Active Nav Link Highlight
+    /* 12. BA Lightbox (Vorher/Nachher zoom)
+       -------------------------------------------------------- */
+    var baLightbox = document.getElementById('ba-lightbox');
+    var baLightboxImg = document.getElementById('ba-lightbox-img');
+
+    if (baLightbox && baLightboxImg) {
+        var baItems = document.querySelectorAll('.ba-item');
+
+        baItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var img = item.querySelector('img');
+                if (img) {
+                    baLightboxImg.src = img.src;
+                    baLightboxImg.alt = img.alt;
+                    baLightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        function closeBaLightbox() {
+            baLightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        baLightbox.addEventListener('click', function(e) {
+            if (e.target === baLightbox || e.target.classList.contains('ba-lightbox-close')) {
+                closeBaLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && baLightbox.classList.contains('active')) {
+                closeBaLightbox();
+            }
+        });
+    }
+
+    /* 13. Active Nav Link Highlight
        -------------------------------------------------------- */
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
     var navLinks = document.querySelectorAll('.nav .nav-link, .mobile-nav-content .nav-link');
