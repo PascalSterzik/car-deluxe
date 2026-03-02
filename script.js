@@ -38,6 +38,30 @@
         });
     }
 
+    /* 1b. Scroll-Driven Hero Video
+       -------------------------------------------------------- */
+    var heroVideo = document.querySelector('.hero-video');
+    var heroWrapper = document.getElementById('hero-scroll-wrapper');
+
+    if (heroVideo && heroWrapper) {
+        // Ensure video is ready for scrubbing
+        heroVideo.pause();
+
+        function scrubVideo() {
+            var rect = heroWrapper.getBoundingClientRect();
+            var wrapperHeight = heroWrapper.offsetHeight - window.innerHeight;
+            var scrolled = -rect.top;
+            var progress = Math.max(0, Math.min(1, scrolled / wrapperHeight));
+
+            if (heroVideo.duration) {
+                heroVideo.currentTime = progress * heroVideo.duration;
+            }
+        }
+
+        window.addEventListener('scroll', scrubVideo, { passive: true });
+        scrubVideo();
+    }
+
     /* 2. Sticky Header (shadow + background on scroll)
        -------------------------------------------------------- */
     const header = document.getElementById('header');

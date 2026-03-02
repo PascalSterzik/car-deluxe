@@ -67,30 +67,32 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg">
-            <video class="hero-video" autoplay muted loop playsinline poster="images/hero/hero-banner.jpg">
-                <source src="images/hero/hero-video.mp4" type="video/mp4">
-                <source src="images/hero/hero-video.webm" type="video/webm">
-            </video>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">Fahrzeugpflege &amp; Dellentechnik</div>
-                <h1>Perfektion, die man<br><em>sehen und fühlen</em> kann</h1>
-                <p class="hero-sub">Wir behandeln jedes Fahrzeug, als wäre es unser eigenes. Professionelle Aufbereitung, Lederrestaurierung und Dellentechnik in Zeltingen-Rachtig an der Mosel.</p>
-                <div class="hero-actions">
-                    <a href="kontakt.html" class="btn btn--gold btn--large">Termin vereinbaren</a>
-                    <a href="galerie.html" class="btn btn--outline btn--large">Ergebnisse ansehen</a>
+    <!-- Hero Section (scroll-driven video) -->
+    <div class="hero-scroll-wrapper" id="hero-scroll-wrapper">
+        <section class="hero">
+            <div class="hero-bg">
+                <video class="hero-video" muted playsinline preload="auto" poster="images/hero/hero-banner.jpg">
+                    <source src="images/hero/hero-video.mp4" type="video/mp4">
+                    <source src="images/hero/hero-video.webm" type="video/webm">
+                </video>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">Fahrzeugpflege &amp; Dellentechnik</div>
+                    <h1>Perfektion, die man<br><em>sehen und fühlen</em> kann</h1>
+                    <p class="hero-sub">Wir behandeln jedes Fahrzeug, als wäre es unser eigenes. Professionelle Aufbereitung, Lederrestaurierung und Dellentechnik in Zeltingen-Rachtig an der Mosel.</p>
+                    <div class="hero-actions">
+                        <a href="kontakt.html" class="btn btn--gold btn--large">Termin vereinbaren</a>
+                        <a href="galerie.html" class="btn btn--outline btn--large">Ergebnisse ansehen</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <a href="#leistungen" class="hero-scroll" aria-label="Weiter scrollen">
-            <span>Entdecken</span>
-            <div class="hero-scroll-line"></div>
-        </a>
-    </section>
+            <a href="#leistungen" class="hero-scroll" aria-label="Weiter scrollen">
+                <span>Entdecken</span>
+                <div class="hero-scroll-line"></div>
+            </a>
+        </section>
+    </div>
 
     <!-- Trust Bar -->
     <section class="trust-bar">
