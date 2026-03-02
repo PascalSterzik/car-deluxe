@@ -9,6 +9,15 @@
     <meta property="og:description" content="Professionelle Fahrzeugpflege und Dellentechnik in Zeltingen-Rachtig. Wir behandeln Ihr Fahrzeug wie unser eigenes.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://car-deluxe.de/">
+    <meta property="og:image" content="https://car-deluxe.de/images/hero/hero-banner.jpg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
+    <meta property="og:site_name" content="Car Deluxe">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Car Deluxe | Fahrzeugpflege auf höchstem Niveau">
+    <meta name="twitter:description" content="Professionelle Fahrzeugpflege und Dellentechnik in Zeltingen-Rachtig. Wir behandeln Ihr Fahrzeug wie unser eigenes.">
+    <meta name="twitter:image" content="https://car-deluxe.de/images/hero/hero-banner.jpg">
     <link rel="canonical" href="https://car-deluxe.de/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -426,39 +435,104 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
     </a>
 
-    <!-- JSON-LD Schema -->
+    <!-- JSON-LD Schema: Organization + AutoRepair -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "AutoRepair",
-        "name": "Car Deluxe",
-        "description": "Professionelle Fahrzeugpflege und Dellentechnik in Zeltingen-Rachtig an der Mosel.",
-        "url": "https://car-deluxe.de",
-        "telephone": "+4917629676468",
-        "email": "car.deluxe@gmx.net",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Deutschherrenstr. 63",
-            "addressLocality": "Zeltingen-Rachtig",
-            "postalCode": "54492",
-            "addressCountry": "DE"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 49.9521,
-            "longitude": 7.0283
-        },
-        "image": "images/logo.png",
-        "sameAs": [
-            "https://www.facebook.com/cardeluxe"
-        ],
-        "priceRange": "$$",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "ratingCount": "5"
-        }
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://car-deluxe.de/#website",
+                "url": "https://car-deluxe.de",
+                "name": "Car Deluxe",
+                "description": "Professionelle Fahrzeugpflege und Dellentechnik in Zeltingen-Rachtig an der Mosel.",
+                "inLanguage": "de-DE",
+                "publisher": { "@id": "https://car-deluxe.de/#organization" }
+            },
+            {
+                "@type": "AutoRepair",
+                "@id": "https://car-deluxe.de/#organization",
+                "name": "Car Deluxe",
+                "alternateName": "Car Deluxe Fahrzeugpflege",
+                "description": "Professionelle Fahrzeugpflege und Dellentechnik in Zeltingen-Rachtig an der Mosel. Aussenpflege, Innenraumaufbereitung, Lederrestaurierung und lackschonende Dellenentfernung.",
+                "url": "https://car-deluxe.de",
+                "telephone": "+4917629676468",
+                "email": "car.deluxe@gmx.net",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Deutschherrenstr. 63",
+                    "addressLocality": "Zeltingen-Rachtig",
+                    "postalCode": "54492",
+                    "addressRegion": "Rheinland-Pfalz",
+                    "addressCountry": "DE"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 49.9521,
+                    "longitude": 7.0283
+                },
+                "image": "https://car-deluxe.de/images/logo.png",
+                "logo": "https://car-deluxe.de/images/logo.png",
+                "photo": "https://car-deluxe.de/images/hero/hero-banner.jpg",
+                "sameAs": [
+                    "https://www.facebook.com/cardeluxe"
+                ],
+                "priceRange": "$$",
+                "currenciesAccepted": "EUR",
+                "paymentAccepted": "Cash, EC-Karte",
+                "areaServed": {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 49.9521,
+                        "longitude": 7.0283
+                    },
+                    "geoRadius": "30000"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "bestRating": "5",
+                    "ratingCount": "5"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Fahrzeugpflege Leistungen",
+                    "itemListElement": [
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Aussenpflege",
+                            "description": "Professionelle Handwaesche, Lackpolitur, Versiegelung und Keramikbeschichtung"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Innenraumaufbereitung",
+                            "description": "Tiefenreinigung, Lederrestaurierung, Geruchsneutralisation und Textilpflege"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Dellentechnik",
+                            "description": "Lackschonende Dellenentfernung ohne Lackierung (PDR)"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Hol- und Bringservice",
+                            "description": "Kostenloser Hol- und Bringservice im Umkreis"
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://car-deluxe.de/#webpage",
+                "url": "https://car-deluxe.de",
+                "name": "Car Deluxe | Fahrzeugpflege auf hoechstem Niveau in Zeltingen-Rachtig",
+                "isPartOf": { "@id": "https://car-deluxe.de/#website" },
+                "about": { "@id": "https://car-deluxe.de/#organization" },
+                "inLanguage": "de-DE",
+                "description": "Professionelle Fahrzeugpflege und Dellentechnik in Zeltingen-Rachtig an der Mosel. Car Deluxe bringt Ihren Wagen in Bestzustand, mit Hol- und Bringservice."
+            }
+        ]
     }
     </script>
 

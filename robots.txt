@@ -1,0 +1,30 @@
+# robots.txt for Car Deluxe
+# https://car-deluxe.de
+
+User-agent: *
+Allow: /
+
+# AI Search Engine Bots - explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap
+Sitemap: https://car-deluxe.de/sitemap.xml
