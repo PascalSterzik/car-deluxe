@@ -953,7 +953,6 @@ section {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
-    cursor: zoom-out;
     backdrop-filter: blur(8px);
 }
 
@@ -968,11 +967,24 @@ section {
     object-fit: contain;
     border-radius: var(--radius-md);
     transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform-origin 0s;
+    cursor: zoom-in;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .ba-lightbox.active img {
     transform: scale(1);
+}
+
+.ba-lightbox img.zoomed {
+    cursor: grab;
+    max-width: none;
+    max-height: none;
+}
+
+.ba-lightbox img.zoomed.dragging {
+    cursor: grabbing;
 }
 
 .ba-lightbox-close {
@@ -1099,14 +1111,19 @@ section {
     object-fit: contain;
     border-radius: var(--radius-sm);
     cursor: zoom-in;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform-origin 0s;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .lightbox-img.zoomed {
-    cursor: zoom-out;
-    transform: scale(1.8);
+    cursor: grab;
     max-width: none;
     max-height: none;
+}
+
+.lightbox-img.zoomed.dragging {
+    cursor: grabbing;
 }
 
 .lightbox-close {
@@ -2082,11 +2099,13 @@ section {
     color: var(--text-muted);
 }
 
-/* Brand Showcase (image only, no overlay) */
+/* Brand Showcase (below footer, flush against it) */
 .brand-showcase {
     width: 100%;
     background: var(--bg);
     line-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .brand-showcase-img {
