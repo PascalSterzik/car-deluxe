@@ -25,11 +25,7 @@ body {
     line-height: 1.7;
     color: var(--text);
     background: var(--bg);
-    /* overflow-x: hidden moved to .page-wrapper — breaks position:sticky on body */
-}
-
-.page-wrapper {
-    overflow-x: hidden;
+    overflow-x: clip; /* clip not hidden — same visual clipping but doesn't break position:sticky */
 }
 
 img {
