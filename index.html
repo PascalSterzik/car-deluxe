@@ -25,7 +25,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -67,14 +67,17 @@
         </div>
     </div>
 
-    <!-- Hero Section (scroll-driven video) -->
+    <!-- Fixed video background (stays locked to viewport) -->
+    <div class="hero-video-bg" id="hero-video-bg">
+        <video class="hero-video" muted playsinline preload="auto" poster="images/hero/hero-banner.jpg">
+            <source src="images/hero/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+    </div>
+
+    <!-- Hero Section (scroll-driven video scrub) -->
     <div class="hero-scroll-wrapper" id="hero-scroll-wrapper">
         <section class="hero">
-            <div class="hero-bg">
-                <video class="hero-video" muted playsinline preload="auto" poster="images/hero/hero-banner.jpg">
-                    <source src="images/hero/hero-video.mp4" type="video/mp4">
-                </video>
-            </div>
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-badge">Fahrzeugpflege &amp; Dellentechnik</div>
@@ -540,6 +543,6 @@
     }
     </script>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>

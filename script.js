@@ -42,8 +42,9 @@
        -------------------------------------------------------- */
     var heroVideo = document.querySelector('.hero-video');
     var heroWrapper = document.getElementById('hero-scroll-wrapper');
+    var heroVideoBg = document.getElementById('hero-video-bg');
 
-    if (heroVideo && heroWrapper) {
+    if (heroVideo && heroWrapper && heroVideoBg) {
         heroVideo.pause();
 
         function scrubVideo() {
@@ -55,6 +56,9 @@
             if (heroVideo.duration) {
                 heroVideo.currentTime = progress * heroVideo.duration;
             }
+
+            /* Hide fixed video once scrolled past hero wrapper */
+            heroVideoBg.style.visibility = (progress >= 1) ? 'hidden' : 'visible';
         }
 
         window.addEventListener('scroll', scrubVideo, { passive: true });
