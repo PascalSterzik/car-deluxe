@@ -1386,13 +1386,16 @@ section {
 .hero-video-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(11, 11, 11, 0.4) 0%,
-        rgba(11, 11, 11, 0.2) 40%,
-        rgba(11, 11, 11, 0.7) 80%,
-        rgba(11, 11, 11, 1) 100%
-    );
+    background:
+        radial-gradient(ellipse 70% 50% at 50% 45%, rgba(11, 11, 11, 0.55) 0%, transparent 100%),
+        linear-gradient(
+            to bottom,
+            rgba(11, 11, 11, 0.5) 0%,
+            rgba(11, 11, 11, 0.45) 30%,
+            rgba(11, 11, 11, 0.4) 50%,
+            rgba(11, 11, 11, 0.7) 80%,
+            rgba(11, 11, 11, 1) 100%
+        );
     pointer-events: none;
 }
 
@@ -1403,6 +1406,7 @@ section {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 24px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-badge {
