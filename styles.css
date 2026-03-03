@@ -1363,14 +1363,27 @@ section {
     position: relative;
 }
 
+.hero-scroll-wrapper .hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+.hero-scroll-wrapper .hero.hero--at-end {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+}
+
 .hero {
     min-height: 100vh;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
-    top: 0;
     overflow: hidden;
     background: var(--bg);
 }
@@ -1382,6 +1395,7 @@ section {
 }
 
 .hero-bg video {
+    display: block;
     position: absolute;
     inset: 0;
     width: 100%;

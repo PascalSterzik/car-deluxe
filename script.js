@@ -42,9 +42,9 @@
        -------------------------------------------------------- */
     var heroVideo = document.querySelector('.hero-video');
     var heroWrapper = document.getElementById('hero-scroll-wrapper');
+    var heroSection = heroWrapper ? heroWrapper.querySelector('.hero') : null;
 
-    if (heroVideo && heroWrapper) {
-        // Ensure video is ready for scrubbing
+    if (heroVideo && heroWrapper && heroSection) {
         heroVideo.pause();
 
         function scrubVideo() {
@@ -52,6 +52,13 @@
             var wrapperHeight = heroWrapper.offsetHeight - window.innerHeight;
             var scrolled = -rect.top;
             var progress = Math.max(0, Math.min(1, scrolled / wrapperHeight));
+
+            // Switch from fixed to absolute when scrolled past wrapper
+            if (progress >= 1) {
+                heroSection.classList.add('hero--at-end');
+            } else {
+                heroSection.classList.remove('hero--at-end');
+            }
 
             if (heroVideo.duration) {
                 heroVideo.currentTime = progress * heroVideo.duration;
