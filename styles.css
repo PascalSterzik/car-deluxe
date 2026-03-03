@@ -2280,6 +2280,14 @@ section {
         min-height: 90vh;
     }
 
+    .hero-video-wrap {
+        background: url('images/hero/hero-banner.jpg') center center / cover no-repeat;
+    }
+
+    .hero-video-wrap video {
+        display: none;
+    }
+
     .hero-actions {
         flex-direction: column;
         gap: 12px;
